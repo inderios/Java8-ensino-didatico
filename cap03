@@ -1,10 +1,12 @@
-import javax.swing.JOptionPane;
-public class ListagemClasseIf {
-    public class If{
+import javax.swing.*;
+public class ok {
+    public static class If{
         public static void main(String[] args){
             Object[] op = {"Masculino", "Feminino"};//criação de um objeto chamado op que tem dois elementos m e f.
-            String resp = (String) JOptionPane.showInputDialog(null,
-                    "Selecione o sexo: \n", "Pesquisa",
+            String resp = (String) JOptionPane.showInputDialog(null, //(String) recebera o conteudo em
+                    // forma de string para armzenar dentro de uma variavel string, null é o local que vai aparecer a mensagem
+                    // mas como não tem valora aparece no meio.
+                    "Selecione o sexo: \n", "Pesquisa", //mensagem, depois titulo.
                     JOptionPane.PLAIN_MESSAGE,
                     null, op, "Masculino");
             if (resp == null) {
@@ -18,5 +20,23 @@ public class ListagemClasseIf {
             }
             System.exit(0);//o programa é apagado da memoria depois que encerra.
         }
+    }
+    public static void main(String[] args) {
+        String aux = JOptionPane.showInputDialog("Forneça o número do mês");
+        if (aux != null) {
+            try {
+                int mes = Integer.parseInt(aux);
+                if (mes>= 1 && mes <= 12) {
+                    JOptionPane.showMessageDialog(null, "Número do més válido\n " + mes);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Número do més invalido\n " + mes);
+                }
+            } catch (NumberFormatException erro) {
+                JOptionPane.showMessageDialog(null, "Digite apenas valores inteiros " + erro);
+            }
+        } else {
+            JOptionPane.showMessageDialog (null, "Operação Cancelada.");
+        }
+        System.exit(0);
     }
 }
